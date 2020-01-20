@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Егор Ракитин](https://up.htmlacademy.ru/javascript/19/user/97250).
-* Наставник: `Неизвестно`.
+* Наставник: `Птетька Волобуев`.
 
 ---
 
