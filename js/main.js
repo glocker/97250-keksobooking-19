@@ -6,7 +6,7 @@ var MAX = 10;
 var TYPES = ['palace', 'flat', 'house', 'bungalo'];
 var CHECKS = ['12:00', '13:00', '14:00'];
 var MAP_MIN_WIDTH = 1;
-var MAP_MAX_WIDTH = 3500;
+var MAP_MAX_WIDTH = 1200;
 var Y_MIN = 130;
 var Y_MAX = 630;
 var PIN_SIZE = 40;
@@ -45,7 +45,6 @@ var createMocks = function () {
   return  mocksData;
 }
 
-var mocks = createMocks();
 
 // FUNCTIONS TO GET RANDOM VALUES
 var random = function (min, max) {
@@ -57,7 +56,7 @@ var getRandomElementInArray = function (array) {
   return array[random(0, array.length - 1)];
 }
 
-
+var mocks = createMocks();
 
 var map = document.querySelector('.map');
 
@@ -65,25 +64,24 @@ var map = document.querySelector('.map');
 // MAP FADED TOGGLE: ACTIVE / INACTIVE
 map.classList.remove('map--faded');
 
-var pinTemplate = document.querySelector('#pin');
+var pinTemplate = document.querySelector('#pin').content;
 var mapPins = document.querySelector('.map__pins');
 
 var getNewAd = function () {
   var pin = pinTemplate.cloneNode(true);
 
-  mocks.forEach(function (i, item) {
-    pin.querySelector('.pin__img').src = item.avatar;
-    pin.querySelector('.pin__img').alt = item.title;
-    pin.querySelector('.map-pin').style.left = item.location.x + (-pinSize * 0.5);
-    pin.querySelector('.map-pin').style.top = item.location.y + (-pinSize * 0.5);
+  mocks.forEach(function (item, i) {
+    pin.querySelector('img').src = item.avatar;
+    pin.querySelector('img').alt = item.title;
+    pin.querySelector('button').style.left = item.location.x + (-PIN_SIZE * 0.5 px);
+    pin.querySelector('button').style.top = item.location.y + (-PIN_SIZE * 0.5 px);
   });
   return pin;
 }
 
 var fragment = document.createDocumentFragment();
-createMocks().forEach(function (i, item) {
-  fragment.appendChild(getNewAd(i, item))
-})
+fragment.appendChild(getNewAd());
+
 
 mapPins.appendChild(fragment);
 
