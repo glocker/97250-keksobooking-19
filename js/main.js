@@ -73,8 +73,8 @@ var getNewAd = function () {
   mocks.forEach(function (item, i) {
     pin.querySelector('img').src = item.avatar;
     pin.querySelector('img').alt = item.title;
-    pin.querySelector('button').style.left = item.location.x + (-PIN_SIZE * 0.5 px);
-    pin.querySelector('button').style.top = item.location.y + (-PIN_SIZE * 0.5 px);
+    pin.querySelector('button').style.left = item.location.x + (-PIN_SIZE * 0.5) + 'px';
+    pin.querySelector('button').style.top = item.location.y + (-PIN_SIZE * 0.5) + 'px';
   });
   return pin;
 }
