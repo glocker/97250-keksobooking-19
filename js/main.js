@@ -68,19 +68,22 @@ var pinTemplate = document.querySelector('#pin').content;
 var pinButton = pinTemplate.querySelector('button');
 var mapPins = document.querySelector('.map__pins');
 
-var getNewAd = function () {
+var getNewAd = function (item) {
   var pin = pinButton.cloneNode(true);
 
-  mocks.forEach(function (item, i) {
-    pin.querySelector('img').src = item.avatar;
-    pin.querySelector('img').alt = item.title;
-    pin.querySelector('button').style.left = item.location.x + (-PIN_SIZE * 0.5) + 'px';
-    pin.querySelector('button').style.top = item.location.y + (-PIN_SIZE * 0.5) + 'px';
-  });
+  pin.querySelector('img').src = item.author.avatar;
+  pin.querySelector('img').alt = item.author.title;
+  pin.querySelector('button').style.left = item.location.x + (-PIN_SIZE * 0.5) + 'px';
+  pin.querySelector('button').style.top = item.location.y + (-PIN_SIZE * 0.5) + 'px';
+
   return pin;
 };
 
 var fragment = document.createDocumentFragment();
+
+mocks.forEach(function (item) {
+  fragment.appendChild(getNewAd(item));
+});
 fragment.appendChild(getNewAd());
 
 
