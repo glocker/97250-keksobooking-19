@@ -1,3 +1,4 @@
+'use strict';
 // CONSTS FOR mocksData
 
 var OBJECTS_NUMBER = 8;
