@@ -15,11 +15,11 @@ var PIN_SIZE = 40;
 var createMocks = function () {
   var mocksData = [];
 
-  for (var i = 0; i <= OBJECTS_NUMBER; i++) {
+  for (var i = 1; i <= OBJECTS_NUMBER; i++) {
     mocksData.push(
         {
           'author': {
-            'avatar': '../img/avatars/user' + 0 + i + '.png'
+            'avatar': 'img/avatars/user' + 0 + i + '.png'
           },
 
           'offer': {
@@ -74,8 +74,8 @@ var getNewAd = function (item) {
 
   pin.querySelector('img').src = item.author.avatar;
   pin.querySelector('img').alt = item.author.title;
-  pin.querySelector('button').style.left = item.location.x + (-PIN_SIZE * 0.5) + 'px';
-  pin.querySelector('button').style.top = item.location.y + (-PIN_SIZE * 0.5) + 'px';
+  pin.style.left = item.location.x + (-PIN_SIZE * 0.5) + 'px';
+  pin.style.top = item.location.y + (-PIN_SIZE * 0.5) + 'px';
 
   return pin;
 };
@@ -85,7 +85,7 @@ var fragment = document.createDocumentFragment();
 mocks.forEach(function (item) {
   fragment.appendChild(getNewAd(item));
 });
-fragment.appendChild(getNewAd());
+
 
 
 mapPins.appendChild(fragment);
