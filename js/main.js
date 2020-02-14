@@ -86,7 +86,5 @@ mocks.forEach(function (item) {
   fragment.appendChild(getNewAd(item));
 });
 
-
-
 mapPins.appendChild(fragment);
 
