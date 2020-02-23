@@ -93,16 +93,33 @@ mapPins.appendChild(fragment);
 var notice = document.querySelector('.notice');
 
 var ad_form = notice.querySelector('.ad-form');
-ad_form.classList.add('.disable');
+ad_form.classList.add('disable');
 
 var map_filters_container = document.querySelector('.map__filters-container');
 var map_filters = map_filters_container.querySelector('.map__filters');
 
-
-var map_pin_main = mapPins.querySelector('.map__pin—main');
-map_pin_main.addEventListener('mousedown', function (){
+// TOGGLE WEB PAGE ACTIVE/INACTIVE
+var activeHandler = function (){
   map.classList.add('map--faded');
   ad_form.classList.add('ad-form--disabled');
-  map_filters.classList.add('.map__filters--disabled');
+  map_filters.classList.add('map__filters--disabled');
+};
+
+var map_pin_main = mapPins.querySelector('.map__pin--main');
+map_pin_main.addEventListener('mousedown', function(e){
+  if (typeof e.map_pin_main === 0) {
+    activeHandler();
+  }
 });
+
+map_pin_main.addEventListener('keydown', function(evt){
+  if (evt.keyCode === 13) {
+    activeHandler();
+  }
+});
+
+var addressInputForm = notice.querySelector('#address');
+addressInputForm.textContent = "124";
+
+
 
