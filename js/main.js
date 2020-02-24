@@ -119,7 +119,7 @@ map_pin_main.addEventListener('keydown', function(evt){
 });
 
 var addressInputForm = notice.querySelector('#address');
-addressInputForm.textContent = "124";
+addressInputForm.value = "???";
 
 
 
