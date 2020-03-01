@@ -118,8 +118,26 @@ map_pin_main.addEventListener('keydown', function(evt){
   }
 });
 
-var addressInputForm = notice.querySelector('#address');
-addressInputForm.value = "???";
+var pinImage = map_pin_main.querySelector(".img");
+//var addressInputForm = notice.querySelector('#address');
+var addressInputForm = document.querySelector('#address');
+//addressInputForm.value = map_pin_main.style.offsetLeft + 32 + "px" + ", " + map_pin_main.style.offsetTop + 82 + "px";
+addressInputForm.value = "602, 457";
+
+var capacity = notice.querySelector('#capacity');
+var capacityOptions = capacity.getElementsTagName('option');
+var roomNumber = notice.querySelector('#room_number');
+
+var capacityChangeHandler = function (evt) {
+  if (capacityOptions.value.selected < roomNumber.value.selected) {
+    setCustomValidity();
+  }
+}
+
+capacity.addEventListener('change', capacityChangeHandler);
+
+
+
 
 
 
