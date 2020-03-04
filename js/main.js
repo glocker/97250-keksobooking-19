@@ -69,13 +69,27 @@ var pinTemplate = document.querySelector('#pin').content;
 var pinButton = pinTemplate.querySelector('button');
 var mapPins = document.querySelector('.map__pins');
 
+var cardTemplate = document.querySelector('#card').content;
+var mapCard = cardTemplate.querySelector('article');
+
 var getNewAd = function (item) {
   var pin = pinButton.cloneNode(true);
+  var card = mapCard.cloneNode(true);
 
   pin.querySelector('img').src = item.author.avatar;
   pin.querySelector('img').alt = item.author.title;
   pin.style.left = item.location.x + (-PIN_SIZE * 0.5) + 'px';
   pin.style.top = item.location.y + (-PIN_SIZE * 0.5) + 'px';
+  card.querySelector('.popup__title').textContent = item.offer.title;
+  card.querySelector('.popup__text--address').textContent = item.offer.address;
+  card.querySelector('.popup__text--price').textContent = item.offer.price + '₽/ночь';
+  card.querySelector('.popup__type').textContent = item.offer.type;
+  card.querySelector('.popup__text--capacity').textContent = item.offer.rooms + ' комнаты для ' + item.offer.guests + ' гостей';
+  card.querySelector('.popup__text--time').textContent = 'Заезд после ' + item.offer.checkin + ', выезд до ' + item.offer.checkout;
+  card.querySelectorAll('.popup__feature') = item.offer.features;
+  card.querySelector('.popup__description').textContent = item.offer.description;
+  card.querySelector('.popup__photos').src = item.offer.photos;
+  card.querySelector('.popup__avatar').src = item.author.avatar;
 
   return pin;
 };
