@@ -86,7 +86,7 @@ var getNewAd = function (item) {
   card.querySelector('.popup__type').textContent = item.offer.type;
   card.querySelector('.popup__text--capacity').textContent = item.offer.rooms + ' комнаты для ' + item.offer.guests + ' гостей';
   card.querySelector('.popup__text--time').textContent = 'Заезд после ' + item.offer.checkin + ', выезд до ' + item.offer.checkout;
-  card.querySelectorAll('.popup__feature') = item.offer.features;
+  card.querySelectorAll('.popup__feature').textContent = item.offer.features;
   card.querySelector('.popup__description').textContent = item.offer.description;
   card.querySelector('.popup__photos').src = item.offer.photos;
   card.querySelector('.popup__avatar').src = item.author.avatar;
@@ -139,7 +139,7 @@ var addressInputForm = document.querySelector('#address');
 addressInputForm.value = "602, 457";
 
 var capacity = notice.querySelector('#capacity');
-var capacityOptions = capacity.getElementsTagName('option');
+var capacityOptions = capacity.getElementsByTagName('option');
 var roomNumber = notice.querySelector('#room_number');
 
 var capacityChangeHandler = function (evt) {
